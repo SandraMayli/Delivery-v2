@@ -1,21 +1,25 @@
 package com.delivery.deliveryfinal.Clases;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
 public class Order {
-    private int id;
+    private String id;
     private String nombreCliente;
     private String emailCliente;
     private String estado;
-    private Date tiempoCreacion;
-    private Date tiempoEstimadoDelivery;
+    private LocalDateTime tiempoCreacion;
+    private LocalDateTime tiempoEstimadoDelivery;
     private List<Food> items;
 
-    public Order(int id, String nombreCliente, String emailCliente, String estado, Date tiempoCreacion,
-                 Date tiempoEstimadoDelivery, List<Food> items) {
-        this.id = id;
+    public Order() {
+
+    }
+    public Order(String id, String nombreCliente, String emailCliente, String estado, LocalDateTime tiempoCreacion,
+                 LocalDateTime tiempoEstimadoDelivery, List<Food> items) {
+        this.id = String.valueOf(id);
         this.nombreCliente = nombreCliente;
         this.emailCliente = emailCliente;
         this.estado = estado;
@@ -24,7 +28,10 @@ public class Order {
         this.items = items;
     }
 
-    public int getId() {
+
+
+
+    public String getId() {
         return id;
     }
 
@@ -40,11 +47,11 @@ public class Order {
         return estado;
     }
 
-    public Date getTiempoCreacion() {
+    public LocalDateTime getTiempoCreacion() {
         return tiempoCreacion;
     }
 
-    public Date getTiempoEstimadoDelivery() {
+    public LocalDateTime getTiempoEstimadoDelivery() {
         return tiempoEstimadoDelivery;
     }
 
@@ -52,7 +59,7 @@ public class Order {
         return items;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -68,11 +75,9 @@ public class Order {
         this.estado = estado;
     }
 
-    public void setTiempoCreacion(Date tiempoCreacion) {
-        this.tiempoCreacion = tiempoCreacion;
-    }
 
-    public void setTiempoEstimadoDelivery(Date tiempoEstimadoDelivery) {
+
+    public void setTiempoEstimadoDelivery(LocalDateTime tiempoEstimadoDelivery) {
         this.tiempoEstimadoDelivery = tiempoEstimadoDelivery;
     }
 
@@ -101,7 +106,9 @@ public class Order {
         }
         return total;
     }
-
+    public void setTiempoCreacion(LocalDateTime tiempoCreacion) {
+        this.tiempoCreacion = tiempoCreacion;
+    }
     public void mostrarDetalle() {
         System.out.println("Orden #" + id);
         System.out.println("Cliente: " + nombreCliente);
@@ -117,4 +124,6 @@ public class Order {
         }
         System.out.println("Total: S/" + calcularTotal());
     }
+
+
 }

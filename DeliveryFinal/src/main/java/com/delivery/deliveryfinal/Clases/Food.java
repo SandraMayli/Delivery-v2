@@ -6,6 +6,11 @@ public class Food {
     private double precio;
 
 
+    public Food(String nombre, String descripcion, double precio) {
+        setNombre(nombre);
+        setDescripcion(descripcion);
+        setPrecio(precio);
+    }
     public String getNombre() {
         return nombre;
     }
